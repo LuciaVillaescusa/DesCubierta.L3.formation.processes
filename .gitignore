@@ -6,3 +6,5 @@
 .httr-oauth
 .DS_Store
 .quarto
+.tmp.driveupload/
+.tmp.drivedownload/
