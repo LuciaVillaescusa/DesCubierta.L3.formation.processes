@@ -9,7 +9,7 @@
 #-------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------
-#         Library uploading 
+#         Library uploading
 # ------------------------------------------------------------------------------
 
 library(readxl)
@@ -27,7 +27,7 @@ lines_refits <- as.data.frame(lines_refits)
 angles<-lines_refits$Angle
 angles_ct <- circular(angles, units="degrees", type="angles", zero=pi/2)
 
-# 5.1.2. >= 20 cm lines 
+# 5.1.2. >= 20 cm lines
 
 long <- subset (lines_refits, lines_refits$Length>=0.20)
 long <- as.data.frame(long)
@@ -36,11 +36,11 @@ angles_long <- long$Angle
 angles_cl <- circular(angles_long, units="degrees", type="angles", zero=pi/2)
 
 # 5.2. ROSE DIAGRAM----
-# 5.2.1. Total lines 
+# 5.2.1. Total lines
 
 ggplot(lines_refits, aes(x = Angle)) +
   geom_bar(stat='bin', bins=30, color ="black", fill = "grey") +
-  scale_x_continuous(breaks = seq(0, 360-1, by=45), limits = c(0, 360), 
+  scale_x_continuous(breaks = seq(0, 360-1, by=45), limits = c(0, 360),
                      labels=c("N\n 0/360º","N-E\ 45º","E\n 90º","S-E\n 135º","S\n 180º","S-W\n 225º","W\n 270º","N-W\n 315º"))+
   scale_y_continuous(breaks = seq (0,8, by=1))+
   coord_polar(start = 0, direction = 1, clip = "on")+
@@ -51,7 +51,7 @@ ggplot(lines_refits, aes(x = Angle)) +
 
 ggplot(long, aes(x = Angle)) +
   geom_bar(stat='bin', bins= 10, color ="black", fill = "grey") +
-  scale_x_continuous(breaks = seq(0, 360-1, by=45), limits = c(0, 360), 
+  scale_x_continuous(breaks = seq(0, 360-1, by=45), limits = c(0, 360),
                      labels=c("N\n 0/360º","N-E\ 45º","E\n 90º","S-E\n 135º","S\n 180º","S-W\n 225º","W\n 270º","N-W\n 315º"))+
   scale_y_continuous(breaks = seq (0,8, by=1))+
   coord_polar(start = 0, direction = 1, clip = "on")+
@@ -59,22 +59,22 @@ ggplot(long, aes(x = Angle)) +
   theme_bw() # fig. 8.g
 
 # 5.3. KERNEL DENSITY ----
-# 5.3.1. Total lines 
+# 5.3.1. Total lines
 
 densitycirculart <- density(angles_ct, bw = 50, control.circular=list(units="degrees"))
 
-plot(densitycirculart, xlim=c(-1.6,1), ylim=c(-1.6,1), 
-     points.plot =T, points.pch=16, points.cex=0.5, 
+plot(densitycirculart, xlim=c(-1.6,1), ylim=c(-1.6,1),
+     points.plot =T, points.pch=16, points.cex=0.5,
      points.col="grey", col = 2,
      main="",
      template = "geographics") # fig.8.f
 
-# 5.3.2. Long lines 
+# 5.3.2. Long lines
 
 densitycircularl <- density(angles_cl, bw = 20, control.circular=list(units="degrees"))
 
-plot(densitycircularl, xlim=c(-1.2,1.2), ylim=c(-1.2,1.2), 
-     points.plot =T, points.pch=16, points.cex=0.5, 
+plot(densitycircularl, xlim=c(-1.2,1.2), ylim=c(-1.2,1.2),
+     points.plot =T, points.pch=16, points.cex=0.5,
      points.col="grey", col = 2,
      main="",
      template = "geographics")  # fig.8.h
@@ -136,7 +136,7 @@ median_l <- median.circular(angles_cl) # circular median
 
 kappa_l <- est.kappa(angles_cl) # concentration
 
-kappa_l2 <- r_l * (2 - r_l^2) / (1 - r_l^2) # no me da igual 
+kappa_l2 <- r_l * (2 - r_l^2) / (1 - r_l^2) # no me da igual
 
 cir_var_l <- 1 - r_l # circular variance
 
@@ -184,7 +184,6 @@ watson.test(angles_ct)
 rayleigh.test(angles_cl)
 kuiper.test(angles_cl)
 watson.test(angles_cl)
-
 
 
 
