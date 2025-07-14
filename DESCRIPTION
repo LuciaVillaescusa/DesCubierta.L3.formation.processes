@@ -2,8 +2,8 @@ Package: DesCubierta.L3.formation.processes
 Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R:
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+    person("Lucía", "Villaescusa", , "lucia.villaescusa.fernandezt@gmail.com", role = c("aut", "cre"))
+Description:This repository contains the data and code for our paper "Towards a formation model of the Neanderthal symbolic accumulation of herbivore crania in the Lozoya Valley: Spatial patterns shaped by rockfall dynamics in Level 3 of Des-Cubierta Cave".
 License: MIT + file LICENSE
 ByteCompile: true
 Encoding: UTF-8
@@ -12,6 +12,17 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Imports: here,
     knitr (>= 1.50),
-    rmarkdown (>= 2.29)
+    rmarkdown (>= 2.29),
+    CircStats (>= 0.2-7),
+    circular (>= 0.5-0),
+    dplyr (>= 1.1.4),
+    ggplot2 (>= 3.5.2),
+    raster (>= 3.6-26),
+    readxl (>= 1.4.3),
+    sf (>= 1.0-16),
+    spatstat (>= 3.3-3),
+    spatstat.utils (>= 3.1-4),
+    stats (>= 4.2.3),
+    terra (>= 1.7-71)
 Suggests: devtools,
     git2r

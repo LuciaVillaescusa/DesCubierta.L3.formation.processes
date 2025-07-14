@@ -85,7 +85,7 @@ plot(densitycircularl, xlim=c(-1.2,1.2), ylim=c(-1.2,1.2),
 n_t <- length(angles) # number of observations
 
 mean_vector_t <- mean.circular(angles_ct) # mean vector
-
+xzsA
 r_t <- rho.circular(angles_ct) # length of mean vector
 
 median_t <- median.circular(angles_ct) # circular median
