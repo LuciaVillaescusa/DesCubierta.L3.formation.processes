@@ -8,7 +8,9 @@
 # 2d SECTION OF THE ANALYSES: VOID OF ARCHAEOLOGICAL REMAINS
 #-------------------------------------------------------------------------------
 
-# Libraries
+# ------------------------------------------------------------------------------
+#         Library uploading
+# ------------------------------------------------------------------------------
 
 library(spatstat)
 library(readxl)
@@ -42,9 +44,9 @@ WYZ <- owin(poly=list(list(x=Window_section$y, y=Window_section$z)))
 
 msel <- as.factor(sel$Size_ran_2)
 
-SELm <- ppp(x = sel$x, 
-            y= sel$y, 
-            window = WXY, 
+SELm <- ppp(x = sel$x,
+            y= sel$y,
+            window = WXY,
             marks= msel)
 
 SEL <- unmark(SELm)
@@ -58,19 +60,19 @@ SB <- SELms$Small_boulder
 plot(SELm, cols = c("black","tan","tan4"),
      cex = c(3, 1.5,0.75),
      pch = c(16,18,16),
-     main = "Clasts first rockfall episodes", 
+     main = "Clasts first rockfall episodes",
      leg.side = "right")
-  axis(1, c(432076,432078, 432080, 432082), 
+  axis(1, c(432076,432078, 432080, 432082),
      cex.axis=0.75)
-  axis(2, c(4530736,4530738, 4530740,4530742, 4530744,4530746,4530747), 
+  axis(2, c(4530736,4530738, 4530740,4530742, 4530744,4530746,4530747),
      cex.axis=0.75)
   grid(lty=2) #fig.4.d
 
 # Section view----
 
-sSELm <- ppp(x = sel$y, 
-             y= sel$z, 
-             window = WYZ, 
+sSELm <- ppp(x = sel$y,
+             y= sel$z,
+             window = WYZ,
              marks= msel)
 
 sSELm <- unique(sSELm)
@@ -86,7 +88,7 @@ sSB <- sSELms$Small_boulder
 plot(sSELm, cols = c("black","tan","tan4"),
      cex = c(3, 1.5,0.75),
      pch = c(16,18,16),
-     main = "Clasts first rockfall episodes by size", 
+     main = "Clasts first rockfall episodes by size",
      leg.side = "right")
 axis(1, 4530736:4530748)
 axis(2, 1108:1111)
@@ -125,14 +127,14 @@ plot(D1cM,useRaster=FALSE, main= "D1\n0.5bw.ppl")
 LR1S<-scanLRTS(S,r=bS)
 pvals1S<-eval.im(pchisq(LR1S,df=1,lower.tail=FALSE))
 
-# Medium boulder 
+# Medium boulder
 
 LR1M<-scanLRTS(M,r=0.5*bM)
 pvals1M<-eval.im(pchisq(LR1M,df=1,lower.tail=FALSE))
 
 # Scan test medium and small superimpose
 
-plot(pvals1S<0.05, main="", col= c(NA, "tan4")) 
+plot(pvals1S<0.05, main="", col= c(NA, "tan4"))
   plot(pvals1M<0.05, main="", col= c(NA, "tan"), add=T)
   plot(WXY, add=T, lwd=1)
   axis(1, c(432076,432078, 432080, 432082), cex.axis=0.75)

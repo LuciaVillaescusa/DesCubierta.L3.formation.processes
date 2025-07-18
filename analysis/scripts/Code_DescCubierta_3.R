@@ -5,10 +5,11 @@
 # Rscript author: Lucía Villaescusa & Lucía Cobo-Sanchez
 
 #--------------------------------------------------------------------------------
-# 3rd SECTION OF THE ANALYSES: CLASTS DIVIDED BY SIZE 
-#-------------------------------------------------------------------------------- 
-
-# Libraries 
+# 3rd SECTION OF THE ANALYSES: CLASTS DIVIDED BY SIZE
+#--------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
+#         Library uploading
+# ------------------------------------------------------------------------------
 
 library(spatstat)
 library(readxl)
@@ -38,7 +39,7 @@ WYZ <- owin(poly=list(list(x=Window_section$y, y=Window_section$z)))
 # 3.2. PPP CREATION----
 # 3.2.1. Section view----
 sGEOm <- ppp(geo$y,
-             geo$z, 
+             geo$z,
              window =WYZ,
              marks = mgeo)
 
@@ -66,7 +67,7 @@ plot(sLBt, main = "Large boulder", pch= 18, cex= 3, cols = "black")
 
 # 3.2.2. Plan view----
 GEOm <- ppp(geo$x,
-            geo$y, 
+            geo$y,
             window =WXY,
             marks = mgeo)
 
@@ -100,13 +101,13 @@ layout(matrix(c(1,2,3), nrow = 1, ncol = 3, byrow = TRUE))
 
 # A.1. Kernel density
 
-#  Large boulders 
+#  Large boulders
 
 bsLBt <- bw.ppl(sLBt)
 bsLBt*0.5
-  
-D1bsLBt <- density(sLBt, bw.ppl, adjust=0.5, positive=TRUE) 
- 
+
+D1bsLBt <- density(sLBt, bw.ppl, adjust=0.5, positive=TRUE)
+
 plot(D1bsLBt, useRaster=FALSE, main="")
   axis(1, 4530736:4530748)
   axis(2, 1108:1111)
@@ -115,7 +116,7 @@ plot(D1bsLBt, useRaster=FALSE, main="")
 # Medium boulders
 
 bsMBt <- bw.ppl(sMBt)
-bsMBt 
+bsMBt
 
 D1asMBt <- density(sMBt, bw.ppl, positive=TRUE)
 
@@ -129,14 +130,14 @@ plot(D1asMBt, useRaster=FALSE, main="")
 bsSBt <- bw.ppl(sSBt)
 bsSBt*0.5
 
-D1asSBt <- density(sSBt, bw.ppl, adjust=0.5, positive=TRUE) 
+D1asSBt <- density(sSBt, bw.ppl, adjust=0.5, positive=TRUE)
 
 plot(D1asSBt, useRaster=FALSE, main="")
   axis(1, 4530736:4530748)
   axis(2, 1108:1111)
   grid(lty=2) # fig.5.f
 
-# A.2. Scan test 
+# A.2. Scan test
 
 # Large boulders
 
@@ -179,14 +180,14 @@ plot(pvals1sSBt<0.05, useRaster=F, main="", col= c(NA, "tan4"))
 # Large boulders
 bLBt <- bw.ppl(LBt)
 bLBt
-  
+
 D1aLBt <- density(LBt, bw.ppl, positive=TRUE)
 
-plot(D1aLBt, useRaster=FALSE, main="") 
+plot(D1aLBt, useRaster=FALSE, main="")
   axis(1, c(432076,432078, 432080, 432082), cex.axis=0.75)
   axis(2, c(4530736,4530738, 4530740,4530742, 4530744,4530746,4530747), cex.axis=0.75)
   grid(lty=2) # fig.6.d
-  
+
 
 # Medium boulders
 
@@ -194,8 +195,8 @@ bMBt <- bw.ppl(MBt)
 bMBt
 
 D1aMBt <- density(MBt, bw.ppl, positive=TRUE)
-  
-plot(D1aMBt, useRaster=FALSE, main="") 
+
+plot(D1aMBt, useRaster=FALSE, main="")
   axis(1, c(432076, 432078, 432080, 432082), cex.axis=0.75)
   axis(2, c(4530736, 4530738, 4530740, 4530742, 4530744, 4530746, 4530747), cex.axis=0.75)
   grid(lty=2) # fig.6.e
@@ -207,7 +208,7 @@ bSBt*0.5
 
 D1aSBt <- density(SBt, bw.ppl, adjust=0.5, positive=TRUE)
 
-plot(D1aSBt, useRaster=F, main="")  
+plot(D1aSBt, useRaster=F, main="")
   axis(1, c(432076, 432078, 432080, 432082), cex.axis=0.75)
   axis(2, c(4530736, 4530738, 4530740, 4530742, 4530744, 4530746, 4530747), cex.axis=0.75)
   grid(lty=2) # fig.6.f

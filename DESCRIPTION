@@ -3,7 +3,7 @@ Title: What the Package Does (One Line, Title Case)
 Version: 0.0.0.9000
 Authors@R:
     person("Lucía", "Villaescusa", , "lucia.villaescusa.fernandezt@gmail.com", role = c("aut", "cre"))
-Description:This repository contains the data and code for our paper "Towards a formation model of the Neanderthal symbolic accumulation of herbivore crania in the Lozoya Valley: Spatial patterns shaped by rockfall dynamics in Level 3 of Des-Cubierta Cave".
+Description:This repository contains the data and code for our paper "Towards a formation model of the Neanderthal symbolic accumulation of herbivore crania in the Lozoya Valley (Madrid, Spain): Spatial patterns shaped by rockfall dynamics in Level 3 of Des-Cubierta Cave".
 License: MIT + file LICENSE
 ByteCompile: true
 Encoding: UTF-8
